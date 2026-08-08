@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-void text-ink font-body antialiased;
+    background-image:
+      radial-gradient(1px 1px at 8% 12%, rgba(237,239,245,0.55) 0, transparent 60%),
+      radial-gradient(1px 1px at 22% 68%, rgba(237,239,245,0.35) 0, transparent 60%),
+      radial-gradient(1.5px 1.5px at 40% 30%, rgba(237,239,245,0.45) 0, transparent 60%),
+      radial-gradient(1px 1px at 63% 82%, rgba(237,239,245,0.3) 0, transparent 60%),
+      radial-gradient(1.5px 1.5px at 78% 20%, rgba(237,239,245,0.4) 0, transparent 60%),
+      radial-gradient(1px 1px at 91% 55%, rgba(237,239,245,0.35) 0, transparent 60%),
+      radial-gradient(1px 1px at 12% 90%, rgba(237,239,245,0.3) 0, transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    background: rgba(242,184,75,0.3);
+  }
+  :focus-visible {
+    outline: 2px solid #F2B84B;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-panel border border-border rounded-xl;
+  }
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.18em] text-faint font-mono;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-gold text-void font-semibold px-4 py-2 rounded-lg
+           hover:brightness-110 active:brightness-95 transition disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-panel2 text-ink border border-border font-medium px-4 py-2 rounded-lg
+           hover:border-teal/50 hover:text-teal transition disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .input {
+    @apply bg-panel2 border border-border rounded-lg px-3 py-2 text-ink placeholder:text-faint
+           focus:border-gold/60 outline-none transition;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 text-xs font-mono px-2 py-1 rounded-md border border-border bg-panel2 text-muted;
+  }
+}
