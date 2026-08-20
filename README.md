@@ -10,6 +10,9 @@ surfaces mentors (people who already hold everything the role needs) and a
 navigable map of how every skill in the organization relates to every
 other one.
 
+**Live app:** https://skillpath-cognodb-ten.vercel.app/
+**Repository:** https://github.com/DarshanKumarGP/skillpath-cognodb
+
 ---
 
 ## Why a graph database?
@@ -94,24 +97,23 @@ people, 14 courses — comfortably inside a CognoDB free (c0) instance.
 
 ## Project structure
 
-```
 skillpath/
-├── backend/                 Express API (Node, ESM)
-│   ├── src/
-│   │   ├── db/driver.js     CognoDB connection, query runner, error normalization
-│   │   ├── db/serialize.js  Neo4j driver types → plain JSON
-│   │   ├── routes/          One file per resource (people, jobs, skills, courses, pathway, health, stats)
-│   │   └── server.js        Express app, central error handler
-│   ├── seed/
-│   │   ├── data.js          All seed data, in one place
-│   │   └── seed.js          Wipes + loads the graph via parameterized Cypher
-│   └── .env.example
-└── frontend/                 React + Vite + Tailwind
-    └── src/
-        ├── pages/            Overview, People, Jobs, Skill Map, Pathway
-        ├── components/       NavBar, ConstellationGraph (the skill-map visualization), States
-        └── lib/               api.js (fetch client), useAsync.js (data-fetching hook)
-```
+├── backend/ Express API (Node, ESM)
+│ ├── src/
+│ │ ├── db/driver.js CognoDB connection, query runner, error normalization
+│ │ ├── db/serialize.js Neo4j driver types → plain JSON
+│ │ ├── routes/ One file per resource (people, jobs, skills, courses, pathway, health, stats)
+│ │ └── server.js Express app, central error handler
+│ ├── seed/
+│ │ ├── data.js All seed data, in one place
+│ │ └── seed.js Wipes + loads the graph via parameterized Cypher
+│ └── .env.example
+└── frontend/ React + Vite + Tailwind
+└── src/
+├── pages/ Overview, People, Jobs, Skill Map, Pathway
+├── components/ NavBar, ConstellationGraph (the skill-map visualization), States
+└── lib/ api.js (fetch client), useAsync.js (data-fetching hook)
+
 
 ---
 
@@ -221,4 +223,19 @@ codebase.
 
 ---
 
+## Screenshots
 
+**Overview** — headline stats and skill demand at a glance
+![Overview](screenshots/overview.png)
+
+**Skill Map** — the constellation graph of every skill and how they relate
+![Skill Map](screenshots/skill-map.png)
+
+**Jobs** — browsing open roles
+![Jobs](screenshots/jobs.png)
+
+**Job detail** — required skills and the closest-matching candidates
+![Job detail](screenshots/job-detail.png)
+
+**Pathway** — skill gap, readiness, and recommended courses for a person → job route
+![Pathway](screenshots/pathway.png)
