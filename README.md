@@ -97,25 +97,24 @@ people, 14 courses — comfortably inside a CognoDB free (c0) instance.
 
 ## Project structure
 
+```
 skillpath/
-├── backend/ Express API (Node, ESM)
-│ ├── src/
-│ │ ├── db/driver.js CognoDB connection, query runner, error normalization
-│ │ ├── db/serialize.js Neo4j driver types → plain JSON
-│ │ ├── routes/ One file per resource (people, jobs, skills, courses, pathway, health, stats)
-│ │ └── server.js Express app, central error handler
-│ ├── seed/
-│ │ ├── data.js All seed data, in one place
-│ │ └── seed.js Wipes + loads the graph via parameterized Cypher
-│ └── .env.example
-└── frontend/ React + Vite + Tailwind
-└── src/
-├── pages/ Overview, People, Jobs, Skill Map, Pathway
-├── components/ NavBar, ConstellationGraph (the skill-map visualization), States
-└── lib/ api.js (fetch client), useAsync.js (data-fetching hook)
-
-
----
+├── backend/                 Express API (Node, ESM)
+│   ├── src/
+│   │   ├── db/driver.js     CognoDB connection, query runner, error normalization
+│   │   ├── db/serialize.js  Neo4j driver types → plain JSON
+│   │   ├── routes/          One file per resource (people, jobs, skills, courses, pathway, health, stats)
+│   │   └── server.js        Express app, central error handler
+│   ├── seed/
+│   │   ├── data.js          All seed data, in one place
+│   │   └── seed.js          Wipes + loads the graph via parameterized Cypher
+│   └── .env.example
+└── frontend/                 React + Vite + Tailwind
+    └── src/
+        ├── pages/            Overview, People, Jobs, Skill Map, Pathway
+        ├── components/       NavBar, ConstellationGraph (the skill-map visualization), States
+        └── lib/               api.js (fetch client), useAsync.js (data-fetching hook)
+```
 
 ## Setup
 
